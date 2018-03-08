@@ -22,88 +22,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     int score = 0;
-    public void runTest(View view){
-        int q1 = 0;
-        int q2 = 0;
-        int q3 = 0;
-        int q4 = 0;
-        int q5 = 0;
-        int q6 = 0;
-        int q7 = 0;
-        int q8 = 0;
-        score = 0;
-        RadioGroup rg1 = (RadioGroup) findViewById(R.id.question1);
-        RadioGroup rg2 = (RadioGroup) findViewById(R.id.question2);
-        RadioGroup rg3 = (RadioGroup) findViewById(R.id.question3);
-        RadioGroup rg4 = (RadioGroup) findViewById(R.id.question4);
-        RadioGroup rg5 = (RadioGroup) findViewById(R.id.question5);
-        RadioGroup rg6 = (RadioGroup) findViewById(R.id.question6);
-        RadioGroup rg7 = (RadioGroup) findViewById(R.id.question7);
-        RadioGroup rg8 = (RadioGroup) findViewById(R.id.question8);
+    private int test(int id, int quest){
+        RadioGroup rg1 = (RadioGroup) findViewById(id);
         int rg1ID = rg1.getCheckedRadioButtonId();
-        int rg2ID = rg2.getCheckedRadioButtonId();
-        int rg3ID = rg3.getCheckedRadioButtonId();
-        int rg4ID = rg4.getCheckedRadioButtonId();
-        int rg5ID = rg5.getCheckedRadioButtonId();
-        int rg6ID = rg6.getCheckedRadioButtonId();
-        int rg7ID = rg7.getCheckedRadioButtonId();
-        int rg8ID = rg8.getCheckedRadioButtonId();
         if (rg1ID != -1) {
             RadioButton selectedRadioButton = (RadioButton) findViewById(rg1ID);
             String text = selectedRadioButton.getText().toString();
-            if(text == getString(R.string.q1b)){
-                q1 = 1;
+            if(text == getString(quest)){
+                return 1;
             }
         }
-        if (rg2ID != -1) {
-            RadioButton selectedRadioButton = (RadioButton) findViewById(rg2ID);
-            String text = selectedRadioButton.getText().toString();
-            if(text == getString(R.string.q2c)){
-                q2 = 1;
-            }
-        }
-        if (rg3ID != -1) {
-            RadioButton selectedRadioButton = (RadioButton) findViewById(rg3ID);
-            String text = selectedRadioButton.getText().toString();
-            if(text == getString(R.string.q3a)){
-                q3 = 1;
-            }
-        }
-        if (rg4ID != -1) {
-            RadioButton selectedRadioButton = (RadioButton) findViewById(rg4ID);
-            String text = selectedRadioButton.getText().toString();
-            if(text == getString(R.string.q4b)){
-                q4 = 1;
-            }
-        }
-        if (rg5ID != -1) {
-            RadioButton selectedRadioButton = (RadioButton) findViewById(rg5ID);
-            String text = selectedRadioButton.getText().toString();
-            if(text == getString(R.string.q5d)){
-                q5 = 1;
-            }
-        }
-        if (rg6ID != -1) {
-            RadioButton selectedRadioButton = (RadioButton) findViewById(rg6ID);
-            String text = selectedRadioButton.getText().toString();
-            if(text == getString(R.string.q6b)){
-                q6 = 1;
-            }
-        }
-        if (rg7ID != -1) {
-            RadioButton selectedRadioButton = (RadioButton) findViewById(rg7ID);
-            String text = selectedRadioButton.getText().toString();
-            if(text == getString(R.string.q7a)){
-                q7 = 1;
-            }
-        }
-        if (rg8ID != -1) {
-            RadioButton selectedRadioButton = (RadioButton) findViewById(rg8ID);
-            String text = selectedRadioButton.getText().toString();
-            if(text == getString(R.string.q8b)){
-                q8 = 1;
-            }
-        }
+        return 0;
+    }
+
+    public void runTest(View view){
+        int q1 = test(R.id.question1, R.string.q1b);
+        int q2 = test(R.id.question2, R.string.q2c);
+        int q3 = test(R.id.question3, R.string.q3a);
+        int q4 = test(R.id.question4, R.string.q4b);
+        int q5 = test(R.id.question5, R.string.q5d);
+        int q6 = test(R.id.question6, R.string.q6b);
+        int q7 = test(R.id.question7, R.string.q7a);
+        int q8 = test(R.id.question8, R.string.q8b);
+        score = 0;
         score = q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8;
         Log.v("tes the score", "om omg omg omg-"+score);
         String final_score = "";
