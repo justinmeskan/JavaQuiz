@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Java Quiz</string>
+    <string name="android_quiz">Android Quiz</string>
+    <string name="q1">1. The keyword \'void\' means what?</string>
+    <string name="q1a">No parameters needed.</string>
+    <string name="q1b">The method has no return value.</string>
+    <string name="q1c">The method has a return value.</string>
+    <string name="q1d">The method is no longer private.</string>
+
+    <string name="q2">2. What method do you use to get the value of a View Object?</string>
+    <string name="q2a">Object.getView().</string>
+    <string name="q2b">this.findObjectView().</string>
+    <string name="q2c">findViewById().</string>
+    <string name="q2d">getViewById().</string>
+
+    <string name="q3">3. What keyword do you use to make a global method?</string>
+    <string name="q3a">Public.</string>
+    <string name="q3b">Private.</string>
+    <string name="q3c">Static.</string>
+    <string name="q3d">Extends.</string>
+
+    <string name="q4">4. How do you assign an ID to a View?</string>
+    <string name="q4a">android:Layout.id=“myId”.</string>
+    <string name="q4b">android:id=“@+id/myId”.</string>
+    <string name="q4c">android:R.id=“myId”.</string>
+    <string name="q4d">andriod:@id="myId".</string>
+
+    <string name="q5">5. What view makes your app scrollable?</string>
+    <string name="q5a">&lt;ViewScroll&gt;&lt;/ViewScroll&gt;.</string>
+    <string name="q5b">&lt;Scrollable>&lt;/Scrollable>.</string>
+    <string name="q5c">&lt;FixedScroll>&lt;/FixedScroll>.</string>
+    <string name="q5d">&lt;ScrollView>&lt;/SrollView>.</string>
+
+    <string name="q6">6. A RelativeLayout keeps your views in a straight column?</string>
+    <string name="q6a">True.</string>
+    <string name="q6b">False.</string>
+
+    <string name="q7">7. Using multiples of 8 is standard when creating padding and margins in your layout?</string>
+    <string name="q7a">True.</string>
+    <string name="q7b">False.</string>
+
+    <string name="q8">8. It’s better to hardcode strings then use string resources?</string>
+    <string name="q8a">True.</string>
+    <string name="q8b">False.</string>
+</resources>
