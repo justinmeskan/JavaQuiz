@@ -1,32 +1,25 @@
 package com.example.justinmeskan.javaquiz;
-
 import android.content.Intent;
-import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
+    //this variable is for my intent at the bottom of the page.
     public static final String SCORE = "com.example.justinmeskan.javaquiz.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
-    int score = 0;
-    private int test(int id, int quest){
-        RadioGroup rg1 = (RadioGroup) findViewById(id);
-        int rg1ID = rg1.getCheckedRadioButtonId();
-        if (rg1ID != -1) {
-            RadioButton selectedRadioButton = (RadioButton) findViewById(rg1ID);
+    // I created a method so i wouldn't have to repeat sthe same code for every question
+    private int checkAnswer(int id, int quest){
+        RadioGroup rg = (RadioGroup) findViewById(id);
+        int rgID = rg.getCheckedRadioButtonId();
+        if (rgID != -1) {
+            RadioButton selectedRadioButton = (RadioButton) findViewById(rgID);
             String text = selectedRadioButton.getText().toString();
             if(text == getString(quest)){
                 return 1;
@@ -34,20 +27,22 @@ public class MainActivity extends AppCompatActivity {
         }
         return 0;
     }
-
-    public void runTest(View view){
-        int q1 = test(R.id.question1, R.string.q1b);
-        int q2 = test(R.id.question2, R.string.q2c);
-        int q3 = test(R.id.question3, R.string.q3a);
-        int q4 = test(R.id.question4, R.string.q4b);
-        int q5 = test(R.id.question5, R.string.q5d);
-        int q6 = test(R.id.question6, R.string.q6b);
-        int q7 = test(R.id.question7, R.string.q7a);
-        int q8 = test(R.id.question8, R.string.q8b);
-        score = 0;
-        score = q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8;
-        Log.v("tes the score", "om omg omg omg-"+score);
+    //This is were I check the anwsers and grade the quiz
+    public void gradeQuiz(View view){
         String final_score = "";
+        //these methods actuals store a point if the correct anwser was choosen
+        int questionOnePoint = checkAnswer(R.id.question1, R.string.q1b);
+        int questionTwoPoint = checkAnswer(R.id.question2, R.string.q2c);
+        int questionThreePoint = checkAnswer(R.id.question3, R.string.q3a);
+        int questionFourPoint = checkAnswer(R.id.question4, R.string.q4b);
+        int questionFivePoint = checkAnswer(R.id.question5, R.string.q5d);
+        int questionSixPoint = checkAnswer(R.id.question6, R.string.q6b);
+        int questionSevenPoint = checkAnswer(R.id.question7, R.string.q7a);
+        int questionEightPoint = checkAnswer(R.id.question8, R.string.q8b);
+        //This is where i add up all the correct anwsers
+        int score = questionOnePoint + questionTwoPoint + questionThreePoint + questionFourPoint;
+        score += questionFivePoint + questionSixPoint + questionSevenPoint + questionEightPoint;
+        //Here i test my final score again different amounts and assign a grade to final_score
         if(score == 8){
             final_score = "A+";
         }else if(score == 7){
@@ -67,7 +62,9 @@ public class MainActivity extends AppCompatActivity {
         }else if(score == 0){
             final_score = "F";
         }
+        //I build the final output string here
         String report_card = "You got a " + final_score + "\nYou got "+ score + " answers right!";
+        //At this fun spot I actual switch Activities and post my anwser on a completely different View or screen
         Intent intent = new Intent(this, Main2Activity.class);
         intent.putExtra(SCORE, report_card);
         startActivity(intent);
